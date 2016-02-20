@@ -10,21 +10,31 @@
  */
 angular
   .module('clientApp', [
-    'ngRoute'
+    'ngRoute',
+    'restangular'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, RestangularProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
       .otherwise({
         redirectTo: '/'
       });
+
+    RestangularProvider.setBaseUrl('http://localhost:3000');
+  })
+  .factory('EntryRestangular', function(Restangular) {
+    // Binds restangular id to __id coming from REST API.
+    return Restangular.withConfig(function(RestangularConfigurer) {
+      RestangularConfigurer.setRestangularFields({
+        id: '_id'
+      });
+    });
+  })
+  .factory('Entry', function(EntryRestangular) {
+    // Maps entry object to REST service endpoint
+    return EntryRestangular.service('entry');
   });
