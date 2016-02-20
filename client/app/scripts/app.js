@@ -20,6 +20,26 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/create/entry', {
+        templateUrl: 'views/entry-add.html',
+        controller: 'EntryAddCtrl',
+        controllerAs: 'entryAdd'
+      })
+      .when('/entry/:id', {
+        templateUrl: 'views/entry-view.html',
+        controller: 'EntryViewCtrl',
+        controllerAs: 'entryView'
+      })
+      .when('/entry/:id/delete', {
+        templateUrl: 'views/entry-delete.html',
+        controller: 'EntryDeleteCtrl',
+        controllerAs: 'entryDelete'
+      })
+      .when('/entry/:id/edit', {
+        templateUrl: 'views/entry-edit.html',
+        controller: 'EntryEditCtrl',
+        controllerAs: 'entryEdit'
+      })
       .otherwise({
         redirectTo: '/'
       });

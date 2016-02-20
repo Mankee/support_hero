@@ -7,15 +7,28 @@
   <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
+<a class="btn btn-primary" href="/#/create/entry"><span class="glyphicon glyphicon-plus"></span> Create Entry</a>
+<br>
 <table class="table table-striped">
   <thead>
     <th>Name</th>
     <th>Date</th>
+    <th>Operations</th>
   </thead>
   <tbody>
-    <tr ng-repeat="entry in entries">
+    <tr ng-repeat="entry in entries | orderBy : '-date' : 'reverse'">
       <td>{{ entry.name }}</td>
       <td>{{ entry.date }}</td>
+      <td>
+        <div class="button-group">
+          <a ng-href="/#/entry/{{ entry._id }}/edit" class="btn btn-default">
+            <span class="glyphicon glyphicon-edit"></span>
+          </a>
+          <a ng-href="/#/entry/{{ entry._id }}/delete" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+          </a>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>
