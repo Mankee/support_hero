@@ -3,5 +3,6 @@
  */
 
 module.exports = {
-  entry: require('./Entry')
-}
+  entry: require('./Entry'),
+  user: require('./User')
+};

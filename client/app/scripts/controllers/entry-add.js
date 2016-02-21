@@ -8,7 +8,9 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('EntryAddCtrl', function ($scope, Entry, $location) {
+  .controller('EntryAddCtrl', function ($scope, User, Entry, $location) {
+    $scope.users = User.getList().$object;
+
     $scope.entry = {};
     $scope.saveEntry = function() {
       Entry.post($scope.entry).then(function() {

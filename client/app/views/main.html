@@ -1,8 +1,9 @@
 <div class="jumbotron">
-  <h1 ng-if="isHeroOfTheDay(todaysDate, entries)">Today's support hero is {{heroOfTheDay(todaysDate, entries)}}.</h1>
+  <h1 ng-if="isHeroOfTheDay(todaysDate, entries)">Today's support hero is {{heroOfTheDay(todaysDate, entries, users, getUserName)}}.</h1>
   <h1 ng-if="!isHeroOfTheDay(todaysDate, entries)">No support hero scheduled for today.</h1>
 </div>
 
+<a class="btn btn-primary" href="/#/create/user"><span class="glyphicon glyphicon-plus"></span> Create User</a>
 <a class="btn btn-primary" href="/#/create/entry"><span class="glyphicon glyphicon-plus"></span> Create Entry</a>
 <br>
 <div >
@@ -14,7 +15,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="entry in entries | orderBy : '-date' : 'reverse'">
-        <td>{{ entry.name }}</td>
+        <td>{{ getUserName(users, entry.user) }}</td>
         <td>{{ entry.date | date:'MM-dd-yyyy' }}</td>
         <td>
           <div class="button-group">

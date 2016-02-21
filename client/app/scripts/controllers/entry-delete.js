@@ -21,6 +21,6 @@ angular.module('clientApp')
       });
     };
     $scope.back = function() {
-      $location.path('/entry/' + $routeParams.id);
+      $location.path('/' + $routeParams.id);
     };
   });

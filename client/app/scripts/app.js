@@ -41,11 +41,20 @@ angular
         controller: 'EntryEditCtrl',
         controllerAs: 'entryEdit'
       })
+      .when('/create/user', {
+        templateUrl: 'views/user-add.html',
+        controller: 'UserAddCtrl',
+        controllerAs: 'userAdd'
+      })
       .otherwise({
         redirectTo: '/'
       });
 
     RestangularProvider.setBaseUrl('http://localhost:3000');
+  })
+  .factory('User', function(EntryRestangular) {
+    // Maps entry object to REST service endpoint
+    return EntryRestangular.service('user');
   })
   .factory('EntryRestangular', function(Restangular) {
     // Binds restangular id to __id coming from REST API.

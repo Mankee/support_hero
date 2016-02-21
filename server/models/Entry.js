@@ -7,11 +7,15 @@ var mongoose = require('mongoose');
 // Create the EntrySchema.
 var EntrySchema = new mongoose.Schema({
   name: {
-    type: String,
-    required: true
+    type: String
   },
   date: {
     type: Date,
+    required: true
+  },
+  user : {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
     required: true
   }
 });

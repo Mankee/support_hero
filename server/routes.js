@@ -3,5 +3,6 @@
  */
 
 module.exports = {
-  '/entry': require('./controllers/EntryController')
-}
+  '/entry': require('./controllers/EntryController'),
+  '/user': require('./controllers/UserController')
+};
