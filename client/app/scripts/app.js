@@ -11,7 +11,8 @@
 angular
   .module('clientApp', [
     'ngRoute',
-    'restangular'
+    'restangular',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider, RestangularProvider) {
     $routeProvider
