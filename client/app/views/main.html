@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="entry in entries | orderBy : '-date' : 'reverse'">
-        <td>{{ getUserName(users, entry.user) }}</td>
+        <td><a ng-href="/#/user/{{ entry.user }}/entries">{{ getUserName(users, entry.user) }}</a></td>
         <td>{{ entry.date | date:'MM-dd-yyyy' }}</td>
         <td>
           <div class="button-group">

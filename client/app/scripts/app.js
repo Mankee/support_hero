@@ -46,6 +46,11 @@ angular
         controller: 'UserAddCtrl',
         controllerAs: 'userAdd'
       })
+      .when('/user/:id/entries', {
+        templateUrl: 'views/user-view-entries.html',
+        controller: 'UserViewEntriesCtrl',
+        controllerAs: 'userViewEntries'
+      })
       .otherwise({
         redirectTo: '/'
       });

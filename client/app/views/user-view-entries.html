@@ -1,0 +1,14 @@
+<div >
+	<table class="table table-striped">
+		<thead>
+		<th>Name</th>
+		<th>Date</th>
+		</thead>
+		<tbody>
+		<tr ng-repeat="entry in filteredEntries(entries) | orderBy : '-date' : 'reverse'">
+			<td>{{ getUserName(users, entry.user) }}</td>
+			<td>{{ entry.date | date:'MM-dd-yyyy' }}</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
