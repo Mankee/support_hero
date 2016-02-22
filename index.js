@@ -25,7 +25,11 @@ app.use(function(req, res, next) {
 });
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/support_hero');
+var mongoUri = process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/support_hero';
+
+mongoose.connect(mongoUri);
 mongoose.connection.once('open', function() {
 
   // Load application models

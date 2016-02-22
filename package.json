@@ -4,6 +4,7 @@
   "description": "Support scheduling app.",
   "main": "index.js",
   "scripts": {
+    "postinstall": "bower install; grunt serve",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
