@@ -6,6 +6,8 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var gzippo = require('gzippo');
+var morgan = require('morgan');
 var _ = require('lodash');
 
 // Create the application.
@@ -15,6 +17,10 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
+
+// Middleware for deploying to Heroku
+app.use(morgan('dev'));
+app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 
 // CORS Support which allow for public RESTful APIs.
 app.use(function(req, res, next) {
