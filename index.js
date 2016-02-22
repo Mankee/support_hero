@@ -12,6 +12,7 @@ var _ = require('lodash');
 
 // Create the application.
 var app = express();
+var http = require('http').Server(app);
 
 // Add Middleware necessary for REST API's.
 app.use(bodyParser.urlencoded({extended: true}));
@@ -39,7 +40,7 @@ mongoose.connect(mongoUri);
 mongoose.connection.once('open', function() {
 
   // Load application models
-  app.models = require('./models/index');
+  app.models = require("" + __dirname + '/models/index');
   console.log("loaded app models" + JSON.stringify(app.models));
 
   // Load application routes and register them with the application.
@@ -48,6 +49,7 @@ mongoose.connection.once('open', function() {
     app.use(route, controller(app, route));
   });
 
-  console.log('Listening on port 3000...');
-  app.listen(3000);
+  http.listen(process.env.PORT || 3000, function () {
+    console.log('Listening on port ' + http.address().port);
+  });
 });
