@@ -32,11 +32,8 @@ The following dependencies must be met before you can install and run the suppor
 From the terminal run the following commands.
 
     git clone git@github.com:Mankee/support_hero.git
-    cd support_hero/client
     npm install
     bower install
-    cd ../server
-    npm install
 
 ## Running The Application:
 From the terminal run each of the following commands from the projects root directory.
@@ -46,7 +43,7 @@ From the terminal run each of the following commands from the projects root dire
     mongod
 #### Running the backend.
 >Default port is 3000
-    node ./server/index.js
+    node ./index.js
 
 #### Running the frontend.
 >Running grunt should open a browser at http://localhost:9000/#/

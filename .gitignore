@@ -35,3 +35,8 @@ jspm_packages
 
 # Intelij configuration files
 .idea
+
+/dist
+/.tmp
+/.sass-cache
+/bower_components
