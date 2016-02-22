@@ -55,7 +55,11 @@ angular
         redirectTo: '/'
       });
 
-    RestangularProvider.setBaseUrl('http://localhost:3000');
+    if (window.location.hostname === 'localhost') {
+      RestangularProvider.setBaseUrl('http://localhost:3000');
+    } else {
+      RestangularProvider.setBaseUrl(window.location.href.substring(0, window.location.href));
+    }
   })
   .factory('User', function(EntryRestangular) {
     // Maps entry object to REST service endpoint
